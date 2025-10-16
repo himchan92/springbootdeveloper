@@ -6,6 +6,8 @@ import me.wonjun.springbootdeveloper.dto.AddArticleRequest;
 import me.wonjun.springbootdeveloper.repository.BlogRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor //final 혹은 @NotNull 붙은 필드 생성자 DI
 public class BlogService {
@@ -14,5 +16,9 @@ public class BlogService {
 
     public Article save(AddArticleRequest request) {
         return blogRepository.save(request.toEntity());
+    }
+
+    public List<Article> findAll() {
+        return blogRepository.findAll();
     }
 }
